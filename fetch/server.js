@@ -3,8 +3,10 @@ const app = express();
 
 let instruments = [ 'piano', 'concertina', 'double bass'];
 
-app.get('/client', function (req, resp){
+app.use(express.static('client'));
+
+app.get('/list', function (req, resp){
     resp.send(instruments);
 });
 
-app.listen(8090);
+app.listen(8090);   

@@ -10,7 +10,7 @@ app.get('/potato', function (req, resp) {
   for (let i = 0; i < recipes.length; i++) {
     let recipe = recipes[i];
     if (recipe.title.includes(search)) {
-      results.push(recipe.title);
+      results.push(recipe);
     }
   }
   resp.send(results);
