@@ -3,10 +3,6 @@ const app = express()
 
 var recipes = require('./potato_recipes.json');
 
-app.get('/users/:userId/books/:bookId', (req, res) => {
-  res.send(req.params)
-})
-
 app.all('/secret', (req, res, next) => {
     console.log('Accessing the secret section ...')
     next() // pass control to the next handler
@@ -38,6 +34,10 @@ app.get('/recipes', (req, res) => {
 
   const result = recipes.filter(recipe => recipe.title && recipe.title.toLowerCase().includes(title.toLowerCase()));
   res.json(result);
+})
+
+app.post('/new', function(req, res){
+  res.send('You sent a POST request')
 })
 
 app.listen(8090)
